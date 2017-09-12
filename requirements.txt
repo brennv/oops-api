@@ -2,4 +2,5 @@ flask
 flask-restful
 flasgger
 gunicorn
-requests
+selenium
+pyyaml
