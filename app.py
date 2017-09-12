@@ -12,9 +12,9 @@ swagger = Swagger(app, template=template, config=swagger_config)
 
 api.add_resource(Health, '/api/health')
 api.add_resource(Search, '/api/search/<string:issue>')
-api.add_resource(SearchOpenshift, '/api/search/openshift/<string:issue>')
-api.add_resource(SearchOpenshiftDocs, '/api/search/openshift/docs/<string:issue>')
-api.add_resource(SearchOpenshiftBugs, '/api/search/openshift/bugs/<string:issue>')
+# api.add_resource(SearchOpenshift, '/api/search/openshift/<string:issue>')
+# api.add_resource(SearchOpenshiftDocs, '/api/search/openshift/docs/<string:issue>')
+# api.add_resource(SearchOpenshiftBugs, '/api/search/openshift/bugs/<string:issue>')
 
 
 @app.route('/')
