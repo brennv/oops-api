@@ -28,4 +28,4 @@ def page_not_found(e):
 
 
 if __name__ == '__main__':
-    app.run(debug=debug, threaded=False)
+    app.run(debug=True, threaded=False)
