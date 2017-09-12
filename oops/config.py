@@ -19,7 +19,8 @@ template = {
   "operationId": "get_data",
   # set tag order
   "tags": [
-      {"name": "help", "description": ""},
+      {"name": "search", "description": ""},
+      {"name": "openshift", "description": ""},
       {"name": "status", "description": ""},
   ]
 }
