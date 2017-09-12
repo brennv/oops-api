@@ -26,13 +26,6 @@ openshift = yaml.load(site_groups)
 openshift['all'] = openshift['bugs'] + openshift['docs']
 openshift['none'] = []
 
-options = webdriver.ChromeOptions()
-options.binary_location = os.getenv("GOOGLE_CHROME_BIN")
-options.add_argument('headless')
-options.add_argument('disable-gpu')
-# options.add_argument('window-size=1200x600')
-print(options)
-
 
 def make_url(issue, sites=[]):
     """ Compose search terms and sites with url safe encoding. """
@@ -59,8 +52,15 @@ def text_format(results):
 
 
 def get_results(issue, include, style='dict'):
+    options = webdriver.ChromeOptions()
+    options.binary_location = os.getenv("GOOGLE_CHROME_BIN")
+    # options.add_argument('headless')
+    # options.add_argument('disable-gpu')
+    # options.add_argument('window-size=1200x600')
+    exec_path = os.getenv("CHROMEDRIVER_PATH")
     print(options)
-    driver = webdriver.Chrome(chrome_options=options)
+    driver = webdriver.Chrome(executable_path=exec_path, chrome_options=options)
+    print(driver)
     url = make_url(issue, sites=openshift[include])
     driver.get(url)
     print('page title', driver.title)
