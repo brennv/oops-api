@@ -25,14 +25,11 @@ bugs:
 openshift = yaml.load(site_groups)
 openshift['all'] = openshift['bugs'] + openshift['docs']
 openshift['none'] = []
+
 options = webdriver.ChromeOptions()
 options.binary_location = os.getenv("GOOGLE_CHROME_BIN")
-print(os.getenv("GOOGLE_CHROME_BIN"))
-print(os.getenv("GOOGLE_CHROME_SHIM"))
 options.add_argument('headless')
 options.add_argument('window-size=1200x600')
-driver = webdriver.Chrome(chrome_options=options)
-# chrome_options=options,
 
 
 def make_url(issue, sites=[]):
@@ -60,6 +57,7 @@ def text_format(results):
 
 
 def get_results(issue, include, style='dict'):
+    driver = webdriver.Chrome(chrome_options=options)
     url = make_url(issue, sites=openshift[include])
     driver.get(url)
     print('page title', driver.title)
@@ -78,6 +76,7 @@ def get_results(issue, include, style='dict'):
         result = {'title': title, 'url': link, 'snippet': snippet}
         # print(result)
         results.append(result)
+    driver.close()
     return results
 
 

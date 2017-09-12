@@ -43,13 +43,13 @@ swagger_config = {
 }
 
 if host == '127.0.0.1:5000':
-    debug = True
-    threaded = False
+    _debug = True
+    _threaded = False
 else:
-    debug = False
-    threaded = True
+    _debug = False
+    _threaded = True
 
 print(' * Host:', host)
 print(' * Scheme:', scheme)
-print(' * Debug:', debug)
-print(' * Threaded:', threaded)
+print(' * Debug:', _debug)
+print(' * Threaded:', _threaded)
