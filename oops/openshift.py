@@ -21,19 +21,6 @@ bugs:
   - trello.com
 '''
 
-import os
-
-for dirname, dirnames, filenames in os.walk('/usr/bin/'):
-    # print path to all subdirectories first.
-    for subdirname in dirnames:
-        path = os.path.join(dirname, subdirname)
-        if 'chrom' in path:
-            print(path)
-    # print path to all filenames.
-    for filename in filenames:
-        path = os.path.join(dirname, filename)
-        if 'chrom' in path:
-            print(path)
 
 openshift = yaml.load(site_groups)
 openshift['all'] = openshift['bugs'] + openshift['docs']
