@@ -27,7 +27,9 @@ openshift = yaml.load(site_groups)
 openshift['all'] = openshift['bugs'] + openshift['docs']
 openshift['none'] = []
 options = webdriver.ChromeOptions()
-options.binary_location = os.getenv("GOOGLE_CHROME_SHIM")
+options.binary_location = os.getenv("GOOGLE_CHROME_BIN")
+print(os.getenv("GOOGLE_CHROME_BIN"))
+print(os.getenv("GOOGLE_CHROME_SHIM"))
 options.add_argument('headless')
 options.add_argument('window-size=1200x600')
 driver = webdriver.Chrome(chrome_options=options)
