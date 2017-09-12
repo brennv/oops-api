@@ -29,7 +29,9 @@ openshift['none'] = []
 options = webdriver.ChromeOptions()
 options.binary_location = os.getenv("GOOGLE_CHROME_BIN")
 options.add_argument('headless')
-options.add_argument('window-size=1200x600')
+options.add_argument('disable-gpu')
+# options.add_argument('window-size=1200x600')
+print(options)
 
 
 def make_url(issue, sites=[]):
@@ -57,6 +59,7 @@ def text_format(results):
 
 
 def get_results(issue, include, style='dict'):
+    print(options)
     driver = webdriver.Chrome(chrome_options=options)
     url = make_url(issue, sites=openshift[include])
     driver.get(url)
