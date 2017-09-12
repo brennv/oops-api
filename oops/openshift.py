@@ -21,11 +21,25 @@ bugs:
   - trello.com
 '''
 
+import os
+
+for dirname, dirnames, filenames in os.walk('/usr/bin/'):
+    # print path to all subdirectories first.
+    for subdirname in dirnames:
+        path = os.path.join(dirname, subdirname)
+        if 'chrom' in path:
+            print(path)
+    # print path to all filenames.
+    for filename in filenames:
+        path = os.path.join(dirname, filename)
+        if 'chrom' in path:
+            print(path)
+
 openshift = yaml.load(site_groups)
 openshift['all'] = openshift['bugs'] + openshift['docs']
 openshift['none'] = []
 options = webdriver.ChromeOptions()
-# options.binary_location = '/usr/bin/google-chrome-unstable'
+options.binary_location = '/usr/bin/google-chrome-unstable'
 options.add_argument('headless')
 options.add_argument('window-size=1200x600')
 driver = webdriver.Chrome(chrome_options=options)
