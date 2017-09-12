@@ -5,8 +5,6 @@ from flask import Flask, jsonify, redirect
 from flask_restful import Api, Resource
 from flasgger import Swagger
 
-import os
-
 
 app = Flask(__name__)
 api = Api(app)
@@ -30,16 +28,4 @@ def page_not_found(e):
 
 
 if __name__ == '__main__':
-    for dirname, dirnames, filenames in os.walk('/usr/bin/'):
-        # print path to all subdirectories first.
-        for subdirname in dirnames:
-            path = os.path.join(dirname, subdirname)
-            if 'chrom' in path:
-                print(path)
-        # print path to all filenames.
-        for filename in filenames:
-            path = os.path.join(dirname, filename)
-            if 'chrom' in path:
-                print(path)
-
     app.run(debug=debug, threaded=False)
