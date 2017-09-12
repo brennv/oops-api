@@ -59,7 +59,7 @@ def get_results(issue, include, style='dict'):
     # options.add_argument('window-size=1200x600')
     exec_path = os.getenv("CHROMEDRIVER_PATH")
     print(options)
-    driver = webdriver.Chrome(executable_path=exec_path, chrome_options=options)
+    driver = webdriver.Chrome(executable_path="chromedriver", chrome_options=options)
     print(driver)
     url = make_url(issue, sites=openshift[include])
     driver.get(url)
