@@ -32,8 +32,8 @@ print(os.getenv("GOOGLE_CHROME_BIN"))
 print(os.getenv("GOOGLE_CHROME_SHIM"))
 options.add_argument('headless')
 options.add_argument('window-size=1200x600')
-driver = webdriver.Chrome(chrome_options=options,
-                          executable_path=os.getenv("GOOGLE_CHROME_BIN"))
+driver = webdriver.Chrome(executable_path=os.getenv("GOOGLE_CHROME_BIN"))
+# chrome_options=options,
 
 
 def make_url(issue, sites=[]):
